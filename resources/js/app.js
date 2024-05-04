@@ -1,4 +1,4 @@
-import './bootstrap';
+import * as bootstrap from 'bootstrap';
 
 import React from "react";
 import ReactDOM from "react-dom";

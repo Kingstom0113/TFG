@@ -1,1 +1,38 @@
-@import 'bootstrap/scss/bootstrap'
+@import 'bootstrap/scss/bootstrap';
+
+//colores
+$blanco:#FFFFFE;
+$azul-claro:#8ECAE6;
+$azul-medio:#219EBC;
+$azul-oscuro:#023047;
+$naranja:#FFB703;
+
+//fuente
+html {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+#body-welcome{
+    background-color: $azul-claro;
+}
+
+#logo{
+    width:50rem;
+}
+
+.boton{
+    border: solid 5px;
+    border-color: $azul-oscuro;
+    font-size: larger;
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 50%;
+    background-color:$azul-medio;
+    color:$naranja;
+}
+
+#sidebarMenu {
+    width: 250px;
+}
