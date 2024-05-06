@@ -22,6 +22,11 @@ html {
     width:50rem;
 }
 
+.logo-navbar{
+    width: 10rem;
+    margin-top: 1rem;
+}
+
 .boton{
     border: solid 5px;
     border-color: $azul-oscuro;
@@ -33,6 +38,16 @@ html {
     color:$naranja;
 }
 
+.nav-main{
+    background-color: $blanco;
+    color: $azul-oscuro;
+    border-bottom: solid 1px $azul-oscuro;
+    height: 4rem;
+
+}
+
 #sidebarMenu {
     width: 250px;
 }
+
+
