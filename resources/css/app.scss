@@ -44,11 +44,64 @@ html {
     color: $azul-oscuro;
     border-bottom: solid 1px $azul-oscuro;
     height: 4rem;
-
 }
 
-#sidebarMenu {
-    width: 250px;
+.grid-1{
+    background-color:$blanco;
 }
 
+/* Estilos CSS para el formulario */
+.form-container {
+    max-width: auto;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #FFB703;
+    border-radius: 8px;
+    background-color: $azul-medio;
+    color: $blanco;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: $azul-oscuro;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: $naranja;
+    color: $azul-oscuro;
+}
+
+.react-select__control{
+    background-color: $azul-medio;
+    border: 1px solid $azul-oscuro;
+    border-radius: 4px;
+    color: $blanco;
+}
+.react-select__value-container {
+    background-color: #fff;
+}
+
+.react-select__multi-value {
+    background-color: #e0e0e0;
+}
+
+.react-select__multi-value__label {
+    color: #333;
+}
 

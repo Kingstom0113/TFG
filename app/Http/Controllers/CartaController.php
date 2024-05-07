@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Carta;
+use App\Models\Producto;
 
 class CartaController extends Controller
 {
@@ -58,6 +59,8 @@ public function destroy(Carta $carta)
 
 public function show(Carta $carta)
 {
-    return view('cartas.carta', compact('carta'));
+    $productos = Producto::all();
+
+    return view('cartas.carta', compact('carta', 'productos'));
 }
 }

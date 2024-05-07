@@ -51,9 +51,9 @@
             </nav>
         </header>
         <main class="m-0 p-0">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 grid-1">
                         <div id="react-root"></div>
                     </div>
                     <div class="col-md-8">
