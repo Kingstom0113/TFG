@@ -6,19 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Carta extends Model
+
+class Producto extends Model
 {
     use HasFactory, SoftDeletes;
-    
-    protected $fillable = ['nombre', 'descripcion', 'user_id'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['nombre', 'alérgenos'];
 
     public function platos()
     {
-        return $this->hasMany(Plato::class);
+        return $this->belongsToMany(Plato::class, 'platos_productos');
     }
 }

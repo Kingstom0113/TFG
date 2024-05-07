@@ -22,20 +22,13 @@ class Plato extends Model
         'categoria_id'
     ];
 
-    /**
-     * Los atributos que deben ser tratados como tipos nativos.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'precio' => 'decimal:2',
-    ];
-
-    /**
-     * Obtener la categoría a la que pertenece el plato.
-     */
-    public function categoria()
+    public function carta()
     {
-        return $this->belongsTo(Categoria::class, 'categoria_id');
+        return $this->belongsTo(Carta::class);
+    }
+
+    public function productos()
+    {
+        return $this->belongsToMany(Producto::class, 'platos_productos');
     }
 }
