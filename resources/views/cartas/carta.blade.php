@@ -33,7 +33,10 @@
                                             <a class="nav-link active" aria-current="page" href="/">{{ __('Inicio') }}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('/home') }}" class="nav-link">{{ __('Perfil') }}</a>
+                                            <a href="{{ url('/home') }}" class="nav-link">{{ __('Home') }}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url('profile')}}" class="nav-link">{{ __('Perfil')}}</a>
                                         </li>
                                     @else
                                         <li class="nav-item">
@@ -53,11 +56,41 @@
         <main class="m-0 p-0">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 grid-1">
-                        <div id="react-root"></div>
+                    <div class="col-md-4">
+                        <div class="accordion" id="CategoriasAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Categorias
+                                    </button>
+                                </h2>                                                                
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#CategoriasAccordion">
+                                    <div class="accordion-body">
+                                        <div id="react-category-creator"></div>
+                                        <div id="react-category-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="platosAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Platos
+                                    </button>
+                                </h2>                                
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#platosAccordion">
+                                    <div class="accordion-body">
+                                        <div id="react-root"></div>
+                                        <div id="react-category-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,11 +100,16 @@
             <!-- place footer here -->
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let myCollapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+                let myCollapseList = myCollapseElementList.map(function (collapseEl) {
+                    return new bootstrap.Collapse(collapseEl)
+                })
+            })
+            </script>            
+            
     </body>
 </html>

@@ -19,16 +19,11 @@ class Plato extends Model
         'nombre',
         'descripcion',
         'precio',
-        'categoria_id'
+        'carta_id'
     ];
 
     public function carta()
     {
         return $this->belongsTo(Carta::class);
-    }
-
-    public function productos()
-    {
-        return $this->belongsToMany(Producto::class, 'platos_productos');
     }
 }

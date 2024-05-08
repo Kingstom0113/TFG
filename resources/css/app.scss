@@ -47,7 +47,7 @@ html {
 }
 
 .grid-1{
-    background-color:$blanco;
+    background-color:$azul-oscuro;
 }
 
 /* Estilos CSS para el formulario */
@@ -87,21 +87,38 @@ button:hover {
     color: $azul-oscuro;
 }
 
-.react-select__control{
-    background-color: $azul-medio;
-    border: 1px solid $azul-oscuro;
-    border-radius: 4px;
-    color: $blanco;
-}
-.react-select__value-container {
-    background-color: #fff;
-}
+/* Estilos CSS para componente plato */
 
-.react-select__multi-value {
-    background-color: #e0e0e0;
-}
+.plato-item {
+    background-color: $azul-claro;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: $azul-medio;
+    font-family: Arial, sans-serif;
+    max-height: 150px;
+    overflow: hidden;
+  }
+  
+  .plato-item h4 {
+    color: $naranja;
+    font-size: 16px; 
+  }
+  
+  .plato-item p {
+    color: $azul-oscuro;
+    font-size: 14px; 
+  }
+  
+  .plato-item.dots {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .plato-item.dots::after {
+    content: "...";
+    color: $azul-oscuro;
+  }
 
-.react-select__multi-value__label {
-    color: #333;
-}
 

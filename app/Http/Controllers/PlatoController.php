@@ -18,8 +18,6 @@ class PlatoController extends Controller
             'nombre' => 'required|string',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric',
-            'producto_ids' => 'required|array',
-            'producto_ids.*' => 'exists:productos,id',
             'carta_id' => 'required|exists:cartas,id'
         ]);
 
@@ -27,17 +25,17 @@ class PlatoController extends Controller
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'precio' => $request->precio,
-            'carta_id' => $request->carta_id  // Asegúrate de recibir este campo desde el frontend
+            'carta_id' => $request->carta_id
         ]);
 
         $plato->save();
-        $plato->productos()->attach($request->producto_ids);
 
         return response()->json($plato, 201);
     } catch (\Exception $e) {
         Log::error($e->getMessage());
-        return response()->json(['error' => $e->getMessage()], 500);
-    }
+        return response()->json(['message' => $e->getMessage()], 500);
+    }    
 }
+
 
 }

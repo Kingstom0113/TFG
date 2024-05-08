@@ -21,4 +21,9 @@ class Carta extends Model
     {
         return $this->hasMany(Plato::class);
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Categories::class);
+    }
 }
