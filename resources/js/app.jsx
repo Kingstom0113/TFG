@@ -10,22 +10,22 @@ import ListaPlatos from './components/ListaPlatos';
 import CategoryCreator from './components/CategoryCreator';
 import CategoryList from './components/CategoryList';
 import DraggableComponent from './components/DraggableComponent';
-import YourComponent from './YourComponent';
 
 
 
 
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/cartas/:cartaId" element={<PlatoCreator />} />
-                <Route path="/categorias/crear" element={<CategoryCreator />} />
-            </Routes>
-        </Router>
+        <DndProvider backend={HTML5Backend}>
+            <Router>
+                <Routes>
+                    <Route path="/cartas/:cartaId" element={<PlatoCreator />} />
+                    <Route path="/categorias/crear" element={<CategoryCreator />} />
+                </Routes>
+            </Router>
+        </DndProvider>
     );
 }
-
 export default App;
 
 // Montaje de la aplicación principal
