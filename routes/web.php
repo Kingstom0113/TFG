@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,8 @@ Route::put('/update-name', [UserController::class, 'updateName'])->name('update-
 Route::put('/update-email', [UserController::class, 'updateEmail'])->name('update-email');
 Route::put('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
 
+Route::post('/logout', function () {
+    Auth::logout();
+    Session::flush();
+    return redirect('/login'); // Redirige al usuario a la página de inicio de sesión
+})->middleware('auth')->name('logout');

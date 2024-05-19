@@ -1,14 +1,16 @@
 @import "bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-//colores
-$blanco: #fffffe;
-$azul-claro: #8ecae6;
-$azul-medio: #219ebc;
-$azul-oscuro: #023047;
-$naranja: #ffb703;
+// Definir variables CSS
+:root {
+    --blanco: #fffffe;
+    --azul-claro: #8ecae6;
+    --azul-medio: #219ebc;
+    --azul-oscuro: #023047;
+    --naranja: #ffb703;
+}
 
-//fuente
+// Fuente
 h1 {
     font-family: "Poppins", sans-serif;
     font-weight: 900;
@@ -18,28 +20,46 @@ h2 {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
 }
+
 h3 {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
 }
+
 h4 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
+
 h5 {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 }
+
 h6 {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
 #body-welcome {
-    background-color: $azul-claro;
+    background-color: var(--azul-claro);
     font-family: "Poppins", sans-serif;
 }
 
+.btn-naranja {
+    background-color: var(--naranja);
+    border-color: var(--naranja);
+}
+
+.btn-primary {
+    background-color: var(--azul-medio) !important;
+    border-color: var(--azul-medio) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--naranja) !important;
+    border-color: var(--naranja) !important;
+}
 #logo {
     width: 50rem;
 }
@@ -52,24 +72,24 @@ h6 {
 
 .boton {
     border: solid 5px;
-    border-color: $azul-oscuro;
+    border-color: var(--azul-oscuro);
     font-size: larger;
     text-decoration: none;
     padding: 2rem;
     border-radius: 50%;
-    background-color: $azul-medio;
-    color: $naranja;
+    background-color: var(--azul-medio);
+    color: var(--naranja);
 }
 
 .nav-main {
-    background-color: $blanco;
-    color: $azul-oscuro;
-    border-bottom: solid 1px $azul-oscuro;
+    background-color: var(--blanco);
+    color: var(--azul-oscuro);
+    border-bottom: solid 1px var(--azul-oscuro);
     height: 4rem;
 }
 
 .grid-1 {
-    background-color: $azul-oscuro;
+    background-color: var(--azul-oscuro);
 }
 
 /* Estilos CSS para el formulario */
@@ -77,10 +97,10 @@ h6 {
     max-width: auto;
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #ffb703;
+    border: 1px solid var(--naranja);
     border-radius: 8px;
-    background-color: $azul-medio;
-    color: $blanco;
+    background-color: var(--azul-medio);
+    color: var(--blanco);
 }
 
 input[type="text"],
@@ -98,7 +118,7 @@ textarea {
 }
 
 button {
-    background-color: $azul-oscuro;
+    background-color: var(--azul-oscuro);
     color: white;
     padding: 10px 20px;
     margin-top: 2rem;
@@ -106,31 +126,30 @@ button {
 }
 
 button:hover {
-    background-color: $naranja;
-    color: $azul-oscuro;
+    background-color: var(--naranja);
+    color: var(--azul-oscuro);
 }
 
 /* Estilos CSS para componente plato */
-
 .plato-item {
-    background-color: $azul-claro;
+    background-color: var(--azul-claro);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: $azul-medio;
+    color: var(--azul-medio);
     font-family: Arial, sans-serif;
     max-height: 150px;
     overflow: hidden;
 }
 
 .plato-item h4 {
-    color: $naranja;
+    color: var(--naranja);
     font-size: 16px;
 }
 
 .plato-item p {
-    color: $azul-oscuro;
+    color: var(--azul-oscuro);
     font-size: 14px;
 }
 
@@ -141,5 +160,14 @@ button:hover {
 
 .plato-item.dots::after {
     content: "...";
-    color: $azul-oscuro;
+    color: var(--azul-oscuro);
 }
+
+.hidden-button {
+    display: none;
+}
+
+.visible-button {
+    display: block;
+}
+

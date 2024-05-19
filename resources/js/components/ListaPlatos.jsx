@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Plato from './Plato';
 
-const ListaPlatos = ({ platosInicial }) => {
-    const [platos, setPlatos] = useState(platosInicial || []);
+const ListaPlatos = () => {
+    const [platos, setPlatos] = useState([]);
+
+    useEffect(() => {
+        // Fetch platos from the API
+        const fetchPlatos = async () => {
+            const response = await fetch('/api/platos');
+            const data = await response.json();
+            setPlatos(data);
+        };
+
+        fetchPlatos();
+    }, []);
 
     return (
         <div className="lista-platos">
@@ -14,4 +25,5 @@ const ListaPlatos = ({ platosInicial }) => {
 };
 
 export default ListaPlatos;
+
 

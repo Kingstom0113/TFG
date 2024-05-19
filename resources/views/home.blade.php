@@ -56,38 +56,105 @@
             </div>
         </nav>
     </header>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mis Cartas</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    @viteReactRefresh
+    @vite(['resources/css/app.scss', 'resources/css/app.css', 'resources/js/app.jsx'])
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+        .bg-azul-medio {
+            background-color: var(--azul-medio) !important;
+        }
+
+        .text-white {
+            color: var(--blanco) !important;
+        }
+
+        .btn-naranja {
+            background-color: var(--naranja) !important;
+            color: var(--blanco) !important;
+        }
+
+        .btn-azul-medio {
+            background-color: var(--azul-medio) !important;
+            color: var(--blanco) !important;
+        }
+
+        .form-control {
+            border-color: var(--azul-claro);
+        }
+
+        .form-check-label, .form-label {
+            color: var(--azul-oscuro);
+        }
+
+        .card {
+            border-color: var(--azul-claro);
+        }
+
+        .card-title {
+            color: var(--azul-oscuro);
+        }
+
+        .card-text {
+            color: var(--azul-medio);
+        }
+
+        .modal-header {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+        }
+
+        .modal-footer .btn-secondary {
+            background-color: var(--azul-claro);
+            border-color: var(--azul-claro);
+        }
+
+        .modal-footer .btn-secondary:hover, .modal-footer .btn-secondary:focus, .modal-footer .btn-secondary:active {
+            background-color: var(--azul-medio);
+            border-color: var(--azul-medio);
+        }
+    </style>
+</head>
+<body id="body-welcome">
     <main>
         <div class="container text-center mt-5">
             <h1>Bienvenido {{ auth()->user()->name }}</h1>
             <h2>Mis Cartas</h2>
             <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCartaModal">
+                <button type="button" class="btn btn-naranja" data-bs-toggle="modal" data-bs-target="#crearCartaModal">
                     Crear Nueva Carta
                 </button>
                 @if ($cartas->isNotEmpty())
                     <div class="row mt-3">
                         @foreach ($cartas as $carta)
-                            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
-                                <div class="card" style="cursor: pointer;" onclick="window.location='{{ route('cartas.show', $carta->id) }}'">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $carta->nombre }}</h5>
-                                        <p class="card-text">{{ $carta->descripcion }}</p>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#editCartaModal" data-id="{{ $carta->id }}"
-                                            data-nombre="{{ $carta->nombre }}"
-                                            data-descripcion="{{ $carta->descripcion }}">
-                                            Editar
-                                        </button>
-                                        <form action="{{ route('cartas.destroy', $carta) }}" method="POST"
-                                            style="display:inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"
-                                                onclick="return confirmDelete()">Eliminar</button>
-                                        </form>
-                                    </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                            <div class="card" style="cursor: pointer;" onclick="window.location='{{ route('cartas.show', $carta->id) }}'">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $carta->nombre }}</h5>
+                                    <p class="card-text">{{ $carta->descripcion }}</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editCartaModal" data-id="{{ $carta->id }}"
+                                        data-nombre="{{ $carta->nombre }}"
+                                        data-descripcion="{{ $carta->descripcion }}"
+                                        onclick="event.stopPropagation();">
+                                        Editar
+                                    </button>
+                                    <form action="{{ route('cartas.destroy', $carta) }}" method="POST" style="display:inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="event.stopPropagation(); return confirmDelete();">Eliminar</button>
+                                    </form>
                                 </div>
                             </div>
+                        </div>                        
                         @endforeach
                     </div>
                 @else
@@ -156,8 +223,10 @@
                 </div>
             </div>
         </div>
-
     </main>
+</body>
+</html>
+
     <footer>
         <!-- place footer here -->
     </footer>

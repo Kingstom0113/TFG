@@ -39,12 +39,7 @@ if (rootContainer) {
     );
 }
 
-// Montaje de la lista de platos
-const rootList = document.getElementById('react-category-list');
-if (rootList) {
-    const root = ReactDOM.createRoot(rootList);
-    root.render(<CategoryList />);
-}
+
 
 // Montaje del creador de categorías
 const categoryCreatorContainer = document.getElementById('react-category-creator');

@@ -16,15 +16,18 @@
 </head>
 
 <body id="body-welcome">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>    
     <main class="d-flex">
         <div class="mx-auto">
             <img src="/img/logo.png" alt="Logo" id="logo">
             @if (Route::has('login'))
                 @auth
                     <a href="{{ url('/home') }}" class="boton">{{ __('Home') }}</a>
-                    <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="boton">{{ __('Logout') }}</a>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="boton">{{ __('Logout') }}</a>
                 @else
-                    <a href="{{ route('login') }}" class="boton">{{ __('Iniciar sesión') }}</a>
+                    <a href="{{ route('login') }}" class="boton">{{ __('Loguear') }}</a>
                     <a href="{{ route('register') }}" class="boton">{{ __('Registro') }}</a>
                 @endauth
             @endif

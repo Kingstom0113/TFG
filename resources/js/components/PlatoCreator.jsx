@@ -23,34 +23,28 @@ const PlatoCreator = () => {
     };
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch('/api/platos', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(plato)
-    });
-
-    if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Error al crear el plato:', errorData.message);
-        alert(`Error: ${errorData.message}`);
-    } else {
-        alert('Plato creado correctamente');
-        setPlato({  // Reinicia el estado
-            nombre: '',
-            descripcion: '',
-            precio: '',
-            carta_id: cartaId
+        e.preventDefault();
+        const response = await fetch('/api/platos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(plato)
         });
-    }
-};
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Error al crear el plato:', errorData.message);
+            alert(`Error: ${errorData.message}`);
+        } else {
+            alert('Plato creado correctamente');
+            window.location.reload();  // Recarga la página
+        }
+    };
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '2rem', alignItems:'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '2rem', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     <label htmlFor="nombre">Nombre del plato:</label>
                     <input type="text" id="nombre" name="nombre" value={plato.nombre} onChange={handleChange} placeholder="Nombre del plato" required />
@@ -66,4 +60,5 @@ const PlatoCreator = () => {
 };
 
 export default PlatoCreator;
+
 
