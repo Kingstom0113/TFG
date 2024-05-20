@@ -37,5 +37,11 @@ class PlatoController extends Controller
     }    
 }
 
+public function index()
+    {
+        $platos = Plato::all();
+        return response()->json($platos);
+    }
+
 
 }

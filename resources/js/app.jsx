@@ -59,4 +59,14 @@ if (categoryListContainer) {
     categoryRoot.render(<CategoryList CategoriaInicial={CategoriaInicial} />);
 }
 
+// Montaje de la lista de platos
+const listaPlatosContainer = document.getElementById('react-lista-platos');
+if (listaPlatosContainer) {
+    const listaPlatosRoot = ReactDOM.createRoot(listaPlatosContainer);
+    listaPlatosRoot.render(
+        <React.StrictMode>
+            <ListaPlatos />
+        </React.StrictMode>
+    );
+}
 

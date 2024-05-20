@@ -78,7 +78,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion" id="platosAccordion">
+                    
+                    <div class="accordion" id="PlatosAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button visible-button" type="button" data-bs-toggle="collapse"
@@ -86,15 +87,15 @@
                                     Platos
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#platosAccordion">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#PlatosAccordion">
                                 <div class="accordion-body">
                                     <div id="react-root"></div>
-                                    
+                                    <div id="react-lista-platos"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="col-md-8">
 
@@ -112,38 +113,25 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function() {
+       $(document).ready(function() {
     $('.accordion-button').click(function(e) {
         e.preventDefault(); // Evita el comportamiento predeterminado de Bootstrap
-        
+
         var $this = $(this);
-        var $parent = $this.closest('.accordion');
-        
+        var $target = $($this.data('bs-target'));
+
         // Colapsa todos los demás acordeones
-        $('.accordion').not($parent).find('.collapse.show').collapse('hide');
-        
+        $('.accordion-collapse.show').not($target).collapse('hide');
+
         // Muestra u oculta el acordeón seleccionado
-        if ($parent.hasClass('show')) {
-            $parent.collapse('hide');
-            $this.addClass('hidden-button'); // Oculta el botón
+        if ($target.hasClass('show')) {
+            $target.collapse('hide');
         } else {
-            $parent.collapse('show');
-            $this.removeClass('hidden-button').addClass('visible-button'); // Mantiene el botón visible
+            $target.collapse('show');
         }
     });
 });
-$('.componente-draggable').draggable({
-    helper: "clone", // Opcional: crea una copia clonada del elemento mientras se arrastra
-    revert: true, // Devuelve automáticamente el elemento a su posición original si se suelta fuera de un área aceptable
-    cursor: "move", // Cambia el cursor al mover el elemento arrastrado
-});
-$('.col-md-8').droppable({
-    accept: ".componente-draggable", // Acepta elementos con la clase.componente-draggable
-    drop: function(event, ui) {
-        // Acciones a realizar cuando se suelta un elemento
-        console.log("Elemento soltado");
-    }
-});
+
 
 
     </script>

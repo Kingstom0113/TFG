@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/platos', [PlatoController::class, 'store'])->name('platos.store');
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/platos', [PlatoController::class, 'index']);
 
 
 
